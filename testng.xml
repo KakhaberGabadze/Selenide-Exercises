@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="crossBrowser" thread-count="2" parallel="tests">
+    <test name="firefox">
+        <parameter name="browser" value="FireFox"/>
+        <classes>
+            <class name="SelenideTests"/>
+            <class name="Selenide2Tests"/>
+        </classes>
+    </test>
+
+    <test name="chrome">
+        <parameter name="browser" value="Chrome"/>
+        <classes>
+            <class name="SelenideTests">
+                <methods>
+                    <exclude name="collectionsTest"/>
+                </methods>
+            </class>
+            <class name="Selenide2Tests"/>
+        </classes>
+    </test>
+</suite>
